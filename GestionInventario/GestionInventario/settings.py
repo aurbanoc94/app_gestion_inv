@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'inventario',
 ]
 
 MIDDLEWARE = [
@@ -72,13 +73,28 @@ WSGI_APPLICATION = 'GestionInventario.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'mssql',
+        'NAME': 'GestionInventario',
+        'USER': 'avalonuc',            # Cambia por tu usuario de SQL Server
+        'PASSWORD': 'sql_user1',    # Cambia por tu contraseña
+        'HOST': 'DESKTOP-DJ6FD0A\SQLEXPRESS',            # O el nombre de tu servidor
+        'PORT': '',                 # Cambia si usas otro puerto
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
+    }
 }
+
 
 
 # Password validation
